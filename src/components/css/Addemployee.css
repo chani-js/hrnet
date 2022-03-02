@@ -1,0 +1,27 @@
+body{
+    width: 100%;
+}
+.title{
+    font-size: 20px;
+}
+
+.identity, .adress, .dept{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.select-control-height{
+    padding: 5px;
+    height: 40px;
+    width: fit-content !important; 
+}
+label{
+    padding: 5px 5px 5px 0;
+    
+}
+.form-control-size{
+    width: 45%;
+}
