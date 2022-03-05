@@ -5,17 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import Modal from './modal'
 import { Link, useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+import deptChoice from '../mock/departement';
+import adress from '../mock/Adress';
 
  const AddEmploye=()=> {
-    const deptChoice = [
-        { value: 'Sales', label: 'Sales' },
-        { value: 'Marketing', label: 'Marketing' },
-        { value: 'Engeneering', label: 'Engeneering' },
-        { value: 'Human Ressource', label: 'Human Ressources' },
-        { value: 'Legal', label: 'Legal'}
-      ];
+  
     const navigate= useNavigate()
     const [selectedDept,setSelectedDept]= useState({})
+    const [selectedAdress, setSelectedAdd]= useState({})
     const [formData, setFormData]= 
     useState({  id:"",
                 firstName: '',
@@ -44,12 +41,16 @@ import Select from 'react-select';
        setSelectedDept(sltdept)
        
 }
+const handleChangeAdd =(sltadd)=>{
+    setSelectedAdd(sltadd)
+    
+}
 
    const handleSubmit=()=>{
        setModalOpen(true)
        console.log("formdata==>",formData)
        const employee = JSON.parse(localStorage.getItem("employee"))
-       employee.push({...formData, id:employee.length,department:selectedDept.value})
+       employee.push({...formData, id:employee.length,department:selectedDept.value,stateAbbrev:selectedAdress.value,state:selectedAdress.label})
        console.log("test==>", {...formData, id:employee.length})
        localStorage.setItem("employee", JSON.stringify(employee))
        navigate("/employeelist")
@@ -108,10 +109,11 @@ import Select from 'react-select';
                         onChange={(e)=>handleChange(e, "city")}
                     />
                 <label htmlFor='ville'>State</label>
-                    <select className='form-control-size select-control-height'>
-                    console.log(json)
-                        <option value={"rue"}></option>
-                    </select>
+                <Select 
+                                 value={selectedAdress}
+                                 onChange={handleChangeAdd}
+                                 options={adress}
+      />
                 <label htmlFor='zipcode'>Zip Code</label>
                     <input
                         type="text"
