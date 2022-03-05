@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
-class TableGrid extends React.Component {
-	constructor(props) {
-		super(props);
+ const TableGrid=()=> {
+		const containerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
 
-		this.state = {
-			columnDefs: [
+		const columnDefs= [
                 {headerName:"Id", field:"id"},
 				{headerName: "First Name", field: "firstName"},
 				{headerName: "LastName", field: "lastName"},
@@ -21,26 +19,31 @@ class TableGrid extends React.Component {
 				{headerName: "Start Date", field: "startDate"},
                 {headerName: "Departement", field: "department"}
 
-			],
-			rowData: JSON.parse(localStorage.getItem("employee"))
-		}
-	}
-    render() {
+			]
+		const rowData= JSON.parse(localStorage.getItem("employee"))
+		
+	
+
 		return (
-			<div
+			<div style={containerStyle}>
+			<div 
 				className="ag-theme-balham"
 				style={{
+					margin:'auto',
 					height: '500px',
-					width: '600px'
+					width: '80%'
 				}}
 			>
 				<AgGridReact
-					columnDefs={this.state.columnDefs}
-					rowData={this.state.rowData}>
+					columnDefs={columnDefs}
+					rowData={rowData}
+					pagination={true}>
+					
 				</AgGridReact>
 			</div>
+		</div>
 		);
 	}
-}
+
 
 export default TableGrid

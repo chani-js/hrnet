@@ -3,10 +3,19 @@ import DatePicker from "react-datepicker";
 import AddEmployee from "../css/Addemployee.css"
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from './modal'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 
  const AddEmploye=()=> {
-     const navigate= useNavigate()
+    const deptChoice = [
+        { value: 'Sales', label: 'Sales' },
+        { value: 'Marketing', label: 'Marketing' },
+        { value: 'Engeneering', label: 'Engeneering' },
+        { value: 'Human Ressource', label: 'Human Ressources' },
+        { value: 'Legal', label: 'Legal'}
+      ];
+    const navigate= useNavigate()
+    const [selectedDept,setSelectedDept]= useState({})
     const [formData, setFormData]= 
     useState({  id:"",
                 firstName: '',
@@ -31,22 +40,29 @@ import { useNavigate } from 'react-router-dom';
 
    }
 
-   const handleSubmit=()=>{
+   const handleChangeDept =(sltdept)=>{
+       setSelectedDept(sltdept)
+       
+}
 
+   const handleSubmit=()=>{
        setModalOpen(true)
        console.log("formdata==>",formData)
        const employee = JSON.parse(localStorage.getItem("employee"))
-       employee.push(formData)
+       employee.push({...formData, id:employee.length,department:selectedDept.value})
+       console.log("test==>", {...formData, id:employee.length})
        localStorage.setItem("employee", JSON.stringify(employee))
        navigate("/employeelist")
+
        
    }
     return (
       <div className='container-addemployee'>
-        <Modal text='bonjour'  isOpen={modalOpen} toggleClick={handleToggleModal}/>
+        <Modal text='Employée ajouter avec succés!!!'  isOpen={modalOpen} toggleClick={handleToggleModal}/>
           <div className='title'>Create Employee </div>
           <section className='form-Add'>
-          
+            
+            <Link to={"/employeelist"}>Employée List</Link>
             <label htmlFor='prenom'>First Name</label>
                     <input
                         type="text"
@@ -108,9 +124,13 @@ import { useNavigate } from 'react-router-dom';
             </fieldset>
                 <section className='dept'>
                     <label htmlFor='dept'>Departement</label>
-                        <select className='form-control-size select-control-height'>
-                            <option value={"dept"}>departement boucle a prendre dans le Json</option>
-                        </select>
+                        
+                        <Select 
+                                 value={selectedDept}
+                                 onChange={handleChangeDept}
+                                 options={deptChoice}
+      />
+                      
                 </section>
                 <section>
                     <button onClick={handleSubmit} >Save</button>
