@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AddEmploye from './components/modal/AddEmploye';
-import Table from './components/table/Table';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Table />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

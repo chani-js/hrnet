@@ -1,16 +1,26 @@
 body{
     width: 100%;
 }
+.container-addemployee{
+    display: flex;
+    flex-direction: column;
+}
 .title{
     font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    display: inline;
+    text-align: center;
 }
-
-.identity, .adress, .dept{
-    width: 40%;
+.form-Add{
+    width: 20%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+}
+.identity, .dept, .adress{
+    display: flex;
+    flex-direction: column;
 }
 
 .select-control-height{
@@ -23,5 +33,5 @@ label{
     
 }
 .form-control-size{
-    width: 45%;
+    width: 80%;
 }

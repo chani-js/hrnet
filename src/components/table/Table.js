@@ -1,10 +1,12 @@
 import { useMemo } from "react"
-
+import '../css/Table.css'
+import { Link } from "react-router-dom"
 
 
 const Table =()=>{
     return  <div>
-                <h2>Current Employees</h2>
+    
+                <h2 className="title-employee">Current Employees</h2>
                 <section className="entete">
                     <div className="select-entries">
                         <label>Show</label>
@@ -14,7 +16,7 @@ const Table =()=>{
                                 <option value="number">50</option>
                                 <option value="number">100</option>
                             </select>
-                            <div>entries</div>
+                         entries
                     </div>
                     <div className="search-employee">
                         <label> Search :</label>
@@ -36,6 +38,9 @@ const Table =()=>{
                         </tr>
 
                 </table>
+            <section className='home-link'>
+                <a href="www.google.com">Home</a>
+            </section>
             </div> 
 
 }
