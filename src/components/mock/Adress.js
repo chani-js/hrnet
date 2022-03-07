@@ -1,4 +1,4 @@
-const adress =[
+const adress = [
     {
         "label": "Alabama",
         "value": "AL"

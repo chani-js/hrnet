@@ -6,11 +6,33 @@ body{
     flex-direction: column;
 }
 .title{
-    font-size: 20px;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     font-weight: bold;
-    margin: auto;
-    display: inline;
+}
+.entete-homepage{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hrnet-title{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.linktiemployee{
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
 }
 .form-Add{
     width: 20%;
@@ -22,16 +44,28 @@ body{
     display: flex;
     flex-direction: column;
 }
+.adress{
+    margin-top: 20px;
+}
 
-.select-control-height{
+.select-control{
     padding: 5px;
     height: 40px;
-    width: fit-content !important; 
 }
 label{
     padding: 5px 5px 5px 0;
     
 }
 .form-control-size{
-    width: 80%;
+    display: block;
+    margin-top: 1rem;
+}
+.button-save{
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+}
+.dept-select{
+    margin-bottom: 10px;
 }

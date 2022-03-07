@@ -1,5 +1,34 @@
-.ag-theme-balham{
- width: 100%;
- display: flex;
- flex-direction: row;
+.container-current{
+    margin: auto;
+}
+.title-employee{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 25px;
+
+}
+.entete{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.select-entries{
+    width: 50%;
+}
+.employee-list{
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+   
+}
+.home-link{
+    margin: auto;
+    text-align: center;
+}
+.linkto{
+    width: 10%;
+    margin: auto;
 }
