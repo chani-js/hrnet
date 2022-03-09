@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import DatePicker from "react-datepicker";
 import AddEmployee from "../css/Addemployee.css"
 import "react-datepicker/dist/react-datepicker.css";
-//import Modal from './modal';
 import { Link, useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import deptChoice from '../mock/departement';
 import adress from '../mock/Adress';
 import  Modal from 'wok-chani-modal';
+import '../css/modal.css'
 
 
 const AddEmploye = () => {
@@ -63,24 +63,24 @@ const AddEmploye = () => {
 
     const handleSubmit = () => {
         setModalOpen(true)
-        console.log("formdata==>", formData)
         const employee = JSON.parse(localStorage.getItem("employee"))
         employee.push({
             ...formData, id: employee.length, department: selectedDept.value, stateAbbrev: selectedAdress.value, state: selectedAdress.label,
             dateOfBirth: selectedBday.toLocaleDateString(), startDate: selectedStart.toLocaleDateString()
         })
-        console.log("test==>", { ...formData, id: employee.length })
         localStorage.setItem("employee", JSON.stringify(employee))
-        navigate("/employeelist")
 
 
     }
     return (
-        <div className='container-addemployee zindex' >
-            <Modal text='Employé ajouté avec succés!!!'
+        <Fragment>
+            <Modal className="modal" text='Employé ajouté avec succés!!!'
                 isOpen={modalOpen}
                 toggleClick={handleToggleModal}
             />
+        
+        <div className='container-addemployee zindex' >
+            
             <section className='entete-homepage'>
                 <div className='hrnet-title'>HRnet</div>
                 <Link to={"/employeelist"} className="linktoemployee" >View Current Employees</Link>
@@ -167,6 +167,7 @@ const AddEmploye = () => {
                 </section>
             </section>
         </div>
+        </Fragment>
     )
 }
 export default AddEmploye

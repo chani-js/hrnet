@@ -18,7 +18,7 @@
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
     "web-vitals": "^2.1.4",
-    "wok-chani-modal": "^1.0.9"
+    "wok-chani-modal": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
