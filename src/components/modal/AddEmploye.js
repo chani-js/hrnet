@@ -1,12 +1,13 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import DatePicker from "react-datepicker";
 import AddEmployee from "../css/Addemployee.css"
 import "react-datepicker/dist/react-datepicker.css";
-import Modal from './modal';
+//import Modal from './modal';
 import { Link, useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import deptChoice from '../mock/departement';
 import adress from '../mock/Adress';
+import  Modal from 'wok-chani-modal';
 
 
 const AddEmploye = () => {
@@ -75,7 +76,7 @@ const AddEmploye = () => {
 
     }
     return (
-        <div className='container-addemployee' >
+        <div className='container-addemployee zindex' >
             <Modal text='Employé ajouté avec succés!!!'
                 isOpen={modalOpen}
                 toggleClick={handleToggleModal}
@@ -89,12 +90,14 @@ const AddEmploye = () => {
 
                 <label htmlFor='prenom' > First Name </label>
                 <input type="text"
+                    aria-label='FirstName'
                     className='form-control-size'
                     name='prenom'
                     value={formData.firstName}
                     onChange={(e) => handleChange(e, "firstName")} />
                 <label htmlFor='nom' > Last Name </label>
                 <input type="text"
+                    aria-label='LastName'
                     className='form-control-size'
                     name='nom'
                     value={formData.lastName}
@@ -102,16 +105,17 @@ const AddEmploye = () => {
                         (e) => handleChange(e, "lastName")}
                 />
 
-                
+
                 <label htmlFor='birthday' > Date of Birth </label>
-                <DatePicker  className='form-control-size' selected={selectedBday} onChange={handleChangeBday} />
+                <DatePicker className='form-control-size index' selected={selectedBday} onChange={handleChangeBday} />
 
                 <label htmlFor='startdate' > Start Date </label>
-                <DatePicker  className='form-control-size' selected={selectedStart} onChange={handleChangeStart} />
+                <DatePicker className='form-control-size index' selected={selectedStart} onChange={handleChangeStart} />
 
                 <fieldset className="adress" >
                     <legend className='legend' > Adress </legend> <label htmlFor='street'> Street </label>
                     <input type="text"
+                        aria-label='Adress'
                         className='form-control-size'
                         placeholder=''
                         name='street'
@@ -120,6 +124,7 @@ const AddEmploye = () => {
                             (e) => handleChange(e, "street")}
                     /> <label htmlFor='city' > City </label>
                     <input type="text"
+                        aria-label='City'
                         className='form-control-size'
                         placeholder=''
                         name='city'
@@ -128,31 +133,37 @@ const AddEmploye = () => {
                             (e) => handleChange(e, "city")}
                     />
                     <label htmlFor='ville' > State </label>
-                    <Select value={selectedAdress}
+                    <Select
+                        aria-label='Town'
+                        value={selectedAdress}
                         onChange={handleChangeAdd}
                         options={adress}
                         className='select-control'
                     /> <label htmlFor='zipcode' > Zip Code </label>
-                    < input type="text"
+                    <input type="text"
+                        aria-label='Zip Code'
                         className='form-control-size'
                         placeholder=''
                         name='zipcode'
                         value={formData.zipCode}
                         onChange={
                             (e) => handleChange(e, "zipCode")} />
-                </fieldset> <section className='dept' >
-                <div className='dept-select'>
-                    <label htmlFor='dept' > Departement </label>
+                </fieldset> 
+                <section className='dept' >
+                    <div className='dept-select'>
+                        <label htmlFor='dept' > Departement </label>
 
-                    <Select 
-                        value={selectedDept}
-                        onChange={handleChangeDept}
-                        options={deptChoice} />
-                </div>
+                        <Select
+                            aria-label='Departement'
+                            className='select-control'
+                            value={selectedDept}
+                            onChange={handleChangeDept}
+                            options={deptChoice} />
+                    </div>
 
                 </section>
                 <section className='button-save'>
-                    <button onClick={handleSubmit} > Save </button>
+                    <button onClick={handleSubmit} label='Save' > Save </button>
                 </section>
             </section>
         </div>

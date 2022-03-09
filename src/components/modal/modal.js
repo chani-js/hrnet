@@ -1,4 +1,4 @@
-import { AutoWidthCalculator, Optional } from "ag-grid-community"
+
 import React, { useState } from "react"
 
 
@@ -16,20 +16,24 @@ export default function Modal({ text, isOpen, toggleClick }) {
             top: 0,
             left: 0,
             bottom: 0,
-            right: 0
+            right: 0,
+            zIndex: 1
+            
           }}>
 
       </div>
       <div className="modal-text"
         style={{
+          zIndex:"1",
           width: '20%',
           position: "absolute",
-          top: '45%',
+          top: '50%',
           left: '40%',
           border: '1px solid black',
           padding: '10px',
           borderRadius: '5px',
           backgroundColor: "white"
+          
         }}>
         <div style={{ position: 'relative' }}>
           <span onClick={toggleClick} style={{

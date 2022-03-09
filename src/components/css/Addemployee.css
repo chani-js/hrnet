@@ -8,11 +8,9 @@ body{
 .title{
     display: block;
     font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin: auto;
     font-weight: bold;
+    width: 30%;
 }
 .entete-homepage{
     text-align: center;
@@ -51,6 +49,7 @@ body{
 .select-control{
     padding: 5px;
     height: 40px;
+    
 }
 label{
     padding: 5px 5px 5px 0;

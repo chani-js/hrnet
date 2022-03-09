@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "ag-grid-community": "^27.0.1",
     "ag-grid-react": "^27.0.1",
-    "date-fns": "^2.28.0",
     "react": "^17.0.2",
     "react-datepicker": "^4.7.0",
     "react-datetime-picker": "^3.5.0",
@@ -19,7 +18,7 @@
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
     "web-vitals": "^2.1.4",
-    "wok-chani-modal": "^1.0.3"
+    "wok-chani-modal": "^1.0.9"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,8 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-datatable": "^0.0.31"
   }
 }
